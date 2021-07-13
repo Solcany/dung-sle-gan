@@ -90,7 +90,7 @@ class SkipLayerExcitationBlock(tf.keras.layers.Layer):
 class OutputBlock(tf.keras.layers.Layer):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.conv = tf.keras.layers.Conv2D(filters=3, kernel_size=3, strides=1, padding="same")
+        self.conv = tf.keras.layers.Conv2D(filters=1, kernel_size=3, strides=1, padding="same")
 
     def call(self, inputs, **kwargs):
         x = self.conv(inputs)
@@ -153,5 +153,5 @@ class Generator(tf.keras.models.Model):
             if self.output_resolution > 512:
                 x = self.upsample_1024(x)  # --> (B, 1024, 1024, 8)
 
-        image = self.output_image(x)  # --> (B, resolution, resolution, 3)
+        image = self.output_image(x)  # --> (B, resolution, resolution, 1)
         return image

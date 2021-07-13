@@ -63,7 +63,7 @@ def center_crop_images(images, crop_resolution: int):
     """
     Crops the center of the images
     Args:
-        images: shape: (B, H, W, 3), H should be equal to W
+        images: shape: (B, H, W, 1), H should be equal to W
         crop_resolution: target resolution for the crop
 
     Returns:

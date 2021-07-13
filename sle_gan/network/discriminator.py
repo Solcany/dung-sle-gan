@@ -158,7 +158,7 @@ class Discriminator(tf.keras.models.Model):
         self.real_fake_output = RealFakeOutputBlock(filters=256)
 
     def initialize(self, batch_size: int = 1):
-        sample_input = tf.random.uniform(shape=(batch_size, self.input_resolution, self.input_resolution, 3), minval=0,
+        sample_input = tf.random.uniform(shape=(batch_size, self.input_resolution, self.input_resolution, 1), minval=0,
                                          maxval=1, dtype=tf.float32)
         sample_output = self.call(sample_input)
         return sample_output
