@@ -22,7 +22,6 @@ def preprocess_images(images, resolution: int):
     Returns:
         resized and normalized images
     """
-
     images = tf.image.resize(images, (resolution, resolution))
     images = tf.cast(images, tf.float32) - 127.5
     images = images / 127.5
